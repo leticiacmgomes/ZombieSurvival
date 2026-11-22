@@ -1,3 +1,15 @@
+# C
+
+C_BLACK = (0, 0, 0, 1)
+C_PURPLE = (99, 14, 101, 1)
+C_PURPLE_WHITE = (226, 131, 227, 1)
+C_WHITE = (0, 0, 0, 0)
+
+
+# M
+
+MENU_OPTION = ('PLAY', 'CONTROLS', 'QUIT')
+
 # W
 
 WIN_HEIGHT =380
