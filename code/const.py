@@ -1,0 +1,4 @@
+# W
+
+WIN_HEIGHT =380
+WIN_WIDTH = 600
