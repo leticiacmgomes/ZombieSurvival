@@ -1,5 +1,6 @@
 import pygame
 
+from code.Controls import Controls
 from code.Menu import Menu
 from code.const import WIN_WIDTH, WIN_HEIGHT
 
@@ -12,4 +13,11 @@ class Game:
     def run(self):
         while True:
             menu = Menu(self.window)
-            menu.run()
+            menu_option = menu.run()
+
+            if menu_option == 'QUIT':
+                pygame.quit()
+                quit()
+            if menu_option == 'CONTROLS':
+                controls = Controls(self.window)
+                controls.show()

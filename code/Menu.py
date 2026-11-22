@@ -46,7 +46,11 @@ class Menu:
                         if menu_option > 0:
                             menu_option -= 1
                         else:
-                            menu_option = 2
+                            menu_option = len(MENU_OPTION) - 1
+
+                    if event.key == pygame.K_RETURN:
+                        print(MENU_OPTION[menu_option])
+                        return MENU_OPTION[menu_option]
 
     def menu_text(self, text, text_size, text_pos, text_color):
         text_font = pygame.font.SysFont(name="Lucida Sans Typewriter", size=text_size)
