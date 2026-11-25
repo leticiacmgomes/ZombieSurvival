@@ -5,7 +5,6 @@ from pygame import KEYDOWN, K_ESCAPE
 
 from code.const import CONTROLS, WIN_WIDTH, C_WHITE, C_RED, C_BLACK
 
-
 class Controls:
     def __init__(self, window):
         self.window = window
@@ -15,7 +14,6 @@ class Controls:
     def show(self):
         while True:
             self.window.blit(self.surf, self.rect)
-
             self.control_text('CONTROLS', 35, (WIN_WIDTH / 2, 60), C_RED)
 
             for i in range(len(CONTROLS)):

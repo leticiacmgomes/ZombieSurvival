@@ -7,6 +7,8 @@ C_PURPLE_WHITE = (226, 131, 227, 1)
 C_RED = (236, 12, 47, 0.97)
 C_WHITE = (0, 0, 0, 0)
 
+ENTITY_SPEED = {'Player': 4}
+
 # M
 
 MENU_OPTION = ('PLAY', 'CONTROLS', 'QUIT')

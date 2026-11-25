@@ -2,6 +2,7 @@ import pygame
 
 from code.Controls import Controls
 from code.Menu import Menu
+from code.Play import Play
 from code.const import WIN_WIDTH, WIN_HEIGHT
 
 
@@ -21,3 +22,7 @@ class Game:
             if menu_option == 'CONTROLS':
                 controls = Controls(self.window)
                 controls.show()
+
+            if menu_option == 'PLAY':
+                play = Play(self.window)
+                play.run()
