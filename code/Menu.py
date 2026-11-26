@@ -1,7 +1,7 @@
 import pygame
 from pip._internal.index import sources
 
-from code.const import WIN_WIDTH, WIN_HEIGHT, C_PURPLE, MENU_OPTION, C_BLACK, C_WHITE, C_PURPLE_WHITE
+from code.const import WIN_WIDTH, WIN_HEIGHT, C_PURPLE, MENU_OPTION, C_BLACK, C_WHITE, C_PURPLE_WHITE, C_RED
 
 
 class Menu:
@@ -21,13 +21,17 @@ class Menu:
 
         while True:
             self.window.blit(source=self.surf, dest=self.rect)
-            self.menu_text('ZOMBIE SURVIVAL', 40, (WIN_WIDTH / 2, 60), C_BLACK)
+            self.menu_text('ZOMBIE SURVIVAL', 40, (WIN_WIDTH / 2, 100), C_BLACK)
 
             for i in range(len(MENU_OPTION)):
                 if menu_option == i:
-                    self.menu_text(MENU_OPTION[i], 20, (WIN_WIDTH / 2, 150 + 50 * i), C_PURPLE)
+                    self.menu_text(MENU_OPTION[i], 20, (WIN_WIDTH / 2, 200 + 50 * i), C_PURPLE)
                 else:
-                    self.menu_text(MENU_OPTION[i], 20, (WIN_WIDTH / 2, 150 + 50 * i), C_PURPLE_WHITE)
+                    self.menu_text(MENU_OPTION[i], 20, (WIN_WIDTH / 2, 200 + 50 * i), C_PURPLE_WHITE)
+
+            self.menu_text('NÃO DEIXE OS ZUMBIS ALCANÇAREM A TORRE DA PRINCESA ', 15, (WIN_WIDTH / 2, 400), C_WHITE)
+            self.menu_text('3 DELES É O SUFICIENTE PARA DERRUBAR A PORTA', 15, (WIN_WIDTH / 2, 430), C_WHITE)
+
 
             pygame.display.flip()
 

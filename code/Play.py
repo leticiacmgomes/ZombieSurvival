@@ -1,6 +1,7 @@
 import pygame.image
 
 from code.Player import Player
+from code.Tower import Tower
 from code.const import WIN_WIDTH
 
 
@@ -16,7 +17,8 @@ class Play:
         pygame.mixer_music.load('./assets/sounds/Game.mp3')
         pygame.mixer_music.play(-1)
 
-        player = Player('Player', self.window, ((WIN_WIDTH - 80) / 2, 30))
+        tower = Tower(self.window, ((WIN_WIDTH - 128) / 2 , 30))
+        player = Player('Player', self.window, ((WIN_WIDTH - 80) / 2, 200))
 
         while True:
             clock.tick(60)
@@ -32,6 +34,7 @@ class Play:
             player.move()
 
             self.window.blit(source=self.surf, dest=self.rect)
+            self.window.blit(source=tower.surf, dest=tower.rect)
             self.window.blit(source=player.surf, dest=player.rect)
 
             pygame.display.flip()
