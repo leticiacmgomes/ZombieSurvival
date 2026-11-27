@@ -3,7 +3,7 @@ import sys
 import pygame
 from pygame import KEYDOWN, K_ESCAPE
 
-from code.const import CONTROLS, WIN_WIDTH, C_WHITE, C_RED, C_BLACK
+from code.const import CONTROLS, WIN_WIDTH, C_RED, C_BLACK
 
 class Controls:
     def __init__(self, window):

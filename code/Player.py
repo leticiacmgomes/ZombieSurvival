@@ -8,6 +8,7 @@ class Player(Entity):
     def __init__(self, name, window, position):
         super().__init__(name, window, position)
         self.speed = ENTITY_SPEED[self.name]
+        self.health = 100
 
     def move(self):
         pressed = pygame.key.get_pressed()
@@ -23,4 +24,5 @@ class Player(Entity):
 
         if pressed[pygame.K_d] and self.rect.right < WIN_WIDTH:
             self.rect.centerx += self.speed
+
 

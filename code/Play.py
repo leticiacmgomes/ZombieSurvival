@@ -1,8 +1,12 @@
+import random
+
 import pygame.image
 
 from code.Player import Player
+from code.Result import Result
 from code.Tower import Tower
-from code.const import WIN_WIDTH
+from code.Zombie import Zombie
+from code.const import WIN_WIDTH, WIN_HEIGHT, ZOMBIE_SPAWN_INTERVAL
 
 
 class Play:
@@ -10,6 +14,9 @@ class Play:
         self.window = window
         self.surf = pygame.image.load('./assets/images/GameBg.png')
         self.rect = self.surf.get_rect(left=0, top=0)
+        self.zombies = []
+        self.zombies_reached = 0
+
 
     def run(self):
         clock = pygame.time.Clock()
@@ -19,6 +26,8 @@ class Play:
 
         tower = Tower(self.window, ((WIN_WIDTH - 128) / 2 , 30))
         player = Player('Player', self.window, ((WIN_WIDTH - 80) / 2, 200))
+
+        last_zombie_spawn = pygame.time.get_ticks()
 
         while True:
             clock.tick(60)
@@ -37,7 +46,25 @@ class Play:
             self.window.blit(source=tower.surf, dest=tower.rect)
             self.window.blit(source=player.surf, dest=player.rect)
 
+            if pygame.time.get_ticks() - last_zombie_spawn >= ZOMBIE_SPAWN_INTERVAL:
+                self.spawn_zombie()
+                last_zombie_spawn = pygame.time.get_ticks()
+
+            for zombie in self.zombies:
+                self.window.blit(source=zombie.surf, dest=zombie.rect)
+                zombie.move(tower)
+                if zombie.rect.colliderect(tower.rect):
+                    self.zombies_reached += 1
+                    self.zombies.remove(zombie)
+
+            if self.zombies_reached >= 3:
+                result = Result(self.window)
+                result.show(False)
+
             pygame.display.flip()
 
+    def spawn_zombie(self):
+        zombie_position_x = random.randint(79, WIN_WIDTH)
+        zombie = Zombie('Zombie', self.window, (zombie_position_x - 79, WIN_HEIGHT - 90))
 
-
+        self.zombies.append(zombie)

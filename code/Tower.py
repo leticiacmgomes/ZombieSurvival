@@ -1,8 +1,5 @@
 import pygame.image
 
-from code.Entity import Entity
-
-
 class Tower:
 
     def __init__(self, window, position):
